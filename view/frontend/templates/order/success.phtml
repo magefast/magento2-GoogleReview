@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var $block \Dragonfly\GoogleReview\Block\Success
+ */
+$orderData = $block->getOrderData();
+$merchantId = $block->getMerchantId();
+if (empty($orderData)) {
+    return '';
+}
+?>
+<script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+<script>
+    window.renderOptIn = function () {
+        window.gapi.load('surveyoptin', function () {
+            window.gapi.surveyoptin.render(
+                {
+                    "merchant_id": "<?= $merchantId ?>",
+                    "order_id": "<?= $orderData['order_id'] ?>",
+                    "email": "<?= $orderData['email'] ?>",
+                    "delivery_country": "<?= $orderData['delivery_country'] ?>",
+                    "estimated_delivery_date": "<?= $orderData['estimated_delivery_date'] ?>"
+                });
+        });
+    }
+</script>
