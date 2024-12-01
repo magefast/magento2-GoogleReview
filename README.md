@@ -1,6 +1,6 @@
 # Magento2 module Dragonfly_GoogleReview
 
-### Module for add Goolge Reviev opt-in for Checkout Success page
+### Module for add Goolge Review opt-in for Checkout Success page
 ### Will add JavaScript with code for review opt-in
 <br>
 <br>
